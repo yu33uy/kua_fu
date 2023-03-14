@@ -13,6 +13,7 @@ declare global {
   const $toRef: typeof import('vue/macros')['$toRef']
   const ACCESS_TOKEN: typeof import('./enums/cacheEnum')['ACCESS_TOKEN']
   const EffectScope: typeof import('vue')['EffectScope']
+  const HttpEnum: typeof import('./enums/httpEnum')['HttpEnum']
   const USER_INFO: typeof import('./enums/cacheEnum')['USER_INFO']
   const asyncComputed: typeof import('@vueuse/core')['asyncComputed']
   const autoResetRef: typeof import('@vueuse/core')['autoResetRef']
@@ -300,6 +301,7 @@ declare module 'vue' {
     readonly $toRef: UnwrapRef<typeof import('vue/macros')['$toRef']>
     readonly ACCESS_TOKEN: UnwrapRef<typeof import('./enums/cacheEnum')['ACCESS_TOKEN']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly HttpEnum: UnwrapRef<typeof import('./enums/httpEnum')['HttpEnum']>
     readonly USER_INFO: UnwrapRef<typeof import('./enums/cacheEnum')['USER_INFO']>
     readonly asyncComputed: UnwrapRef<typeof import('@vueuse/core')['asyncComputed']>
     readonly autoResetRef: UnwrapRef<typeof import('@vueuse/core')['autoResetRef']>
