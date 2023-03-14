@@ -37,6 +37,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@antfu/eslint-config": "^0.36.0",
     "@dcloudio/uni-app": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-app-plus": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-components": "3.0.0-alpha-3061620221230002",
@@ -49,6 +50,8 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3061620221230002",
+    "eslint": "^8.36.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "unocss": "^0.50.4",
     "unocss-preset-weapp": "^0.5.1",
     "vue": "^3.2.45",
