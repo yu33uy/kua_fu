@@ -1,6 +1,7 @@
 import { HttpEnum } from '@/enums/httpEnum'
 
-const baseURL = 'http://localhost:8200'
+import { BASE_URL, CODE_NAME, DATA_NAME, MESSAGE_NAME } from '@/config/apiConfig'
+
 const userStore = useUserStore()
 interface Options {
   url: string
@@ -22,16 +23,16 @@ export const request = (options: Options) => {
 
   return new Promise((resolve, reject) => {
     uni.request({
-      url: baseURL + url,
+      url: BASE_URL + url,
       method: method || 'GET',
       data,
       header,
-      timeout,
+      timeout: timeout || 60000,
       success: (res: any) => {
-        if (HttpEnum.SUCCESS.includes(res.data.code)) {
-          resolve(res.data.result)
+        if (HttpEnum.SUCCESS.includes(res.data[CODE_NAME])) {
+          resolve(res.data[DATA_NAME])
         }
-        else if (HttpEnum.ACCOUNT_ERROR.includes(res.data.code)) {
+        else if (HttpEnum.ACCOUNT_ERROR.includes(res.data[CODE_NAME])) {
           uni.showToast({
             title: '账号密码错误',
             icon: 'none',
@@ -39,7 +40,7 @@ export const request = (options: Options) => {
           })
           reject(res.data)
         }
-        else if (HttpEnum.TIMEOUT.includes(res.data.code)) {
+        else if (HttpEnum.TIMEOUT.includes(res.data[CODE_NAME])) {
           uni.showToast({
             title: '登录失效，请重新登录',
             icon: 'none',
@@ -53,7 +54,7 @@ export const request = (options: Options) => {
         }
         else {
           uni.showToast({
-            title: res.message,
+            title: res[MESSAGE_NAME],
             icon: 'none',
             duration: 2000,
           })

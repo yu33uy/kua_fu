@@ -50,6 +50,7 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-mp-weixin": "3.0.0-alpha-3061620221230002",
     "@dcloudio/uni-quickapp-webview": "3.0.0-alpha-3061620221230002",
+    "@types/node": "^18.15.3",
     "@vueuse/core": "^9.13.0",
     "eslint": "^8.36.0",
     "eslint-plugin-cypress": "^2.12.1",
