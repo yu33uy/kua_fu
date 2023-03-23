@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const title = ref('Hello')
-</script>
-
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png" />
@@ -15,6 +11,11 @@ const title = ref('Hello')
     </view>
   </view>
 </template>
+
+<script setup lang="ts">
+const title = ref('Hello')
+console.log(title)
+</script>
 
 <style>
 .content {
