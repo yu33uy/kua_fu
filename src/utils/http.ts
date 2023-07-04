@@ -2,7 +2,6 @@ import { HttpEnum } from '@/enums/httpEnum'
 
 import { BASE_URL, CODE_NAME, DATA_NAME, MESSAGE_NAME } from '@/config/apiConfig'
 
-const userStore = useUserStore()
 interface Options {
   url: string
   method: any
@@ -17,8 +16,8 @@ export const request = (options: Options) => {
     header = {
       'content-type': 'application/json',
     }
-    if (userStore.token)
-      header.Authorization = userStore.token
+    if (uni.getStorageSync(ACCESS_TOKEN))
+      header.Authorization = uni.getStorageSync(ACCESS_TOKEN)
   }
 
   return new Promise((resolve, reject) => {
@@ -46,10 +45,7 @@ export const request = (options: Options) => {
             icon: 'none',
             duration: 2000,
           })
-          userStore.setToken('')
-          uni.navigateTo({
-            url: '/pages/login/login',
-          })
+          uni.clearStorageSync()
           reject(res.data)
         }
         else {
